@@ -1,0 +1,12 @@
+## Objects files
+Codes/*/Objects/*
+
+## Debug files
+Codes/*/DebugConfig/*
+
+## .vscode
+.vscode/*
+Codes/*/.vscode/*
+
+
+
