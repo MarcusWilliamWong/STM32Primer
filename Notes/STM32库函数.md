@@ -26,3 +26,7 @@ STM32一共有GPIOA~D，共计7个GPIO外设，每个GPIO有16个引脚。GPIO�
 > 推挽输出模式是一种常见的GPIO输出模式，也称为双向驱动模式。在推挽输出模式下，一个GPIO引脚既能够提供高电平（VDD）输出，也能够提供低电平（GND）输出。当输出为高电平时，GPIO输出引脚与VDD连接；当输出为低电平时，GPIO输出引脚与GND连接。
 >
 > 推挽输出模式可以用于驱动各种类型的负载，例如LED、继电器、马达等。由于该模式下GPIO引脚可提供较高的驱动能力，因此在许多应用中被广泛使用。
+
+Reference:
+
+[STM32F1x固件库函数学习笔记（一）](https://blog.csdn.net/lzxiaotu/article/details/129111929)
