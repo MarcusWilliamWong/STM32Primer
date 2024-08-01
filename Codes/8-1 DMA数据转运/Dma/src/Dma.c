@@ -1,7 +1,7 @@
 /****************************************************************
  * - Author: Eureke
  * - Date: 2024-08-01 00:14:49
- * - LastEditTime: 2024-08-01 02:21:06
+ * - LastEditTime: 2024-08-02 02:32:29
  * - Description: 
  * - FilePath: \8-1 DMA数据转运\Dma\src\Dma.c
  *****************************************************************/
@@ -59,7 +59,13 @@ void Dma_Init(void)
  *****************************************************************/
 void Dma_TranscationDataM2M(void)
 {
+	/* 想要修改数据传输计数器CNDTR的值，必须先关闭DMA控制寄存器，修改后，再使能DMA */
 	DMA_Cmd(DMA1_Channel1, DISABLE);
 	DMA_SetCurrDataCounter(DMA1_Channel1, DMA_ARRAYSIZE);
 	DMA_Cmd(DMA1_Channel1, ENABLE);
+
+	/* 如果数据量过大，需要等数据传输完成再退出 */
+	while (RESET == DMA_GetFlagStatus(DMA1_FLAG_TC1));
+
+	DMA_ClearFlag(DMA1_FLAG_TC1);
 }
